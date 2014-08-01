@@ -170,7 +170,7 @@ class Parser
   
     @saved_state = @state
     
-    if /\[source.*\]/ =~ @token
+    if /\[source, swift\]/ =~ @token
       @state = :code1
     elsif ((/--/ =~ @token) == 0) and (@state == :code1)  
       @state = :code2
@@ -234,6 +234,7 @@ class Parser
       @file_contents = ":last-update-label!:\n\n\n" +  @file_contents
       File.open(source_path, 'w') {|f| f.write(@file_contents) }
       Asciidoctor.render_file(source_path, :in_place => true)
+      post_process(html_path)
 
       if !@debug
         FileUtils.rm(source_path)
@@ -309,6 +310,36 @@ class Parser
     @token = "!end!"
     handle_token 
   end
+  
+  def post_process(html_file)
+    contents = File.open(html_file, 'r') { |f| f.read }
+    edited_contents = contents.sub("</head>", $mathscript + "\n\n" + "</head>")
+    File.open(html_file, 'w') {|f| f.write(edited_contents) }    
+  end
+  
+  $mathscript = <<'EOF'
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	  tex2jax: {
+	    inlineMath: [["\\\(", "\\\)"]],
+	    displayMath: [["\\\[", "\\\]"]],
+	    ignoreClass: "nomath|nolatexmath"
+	  },
+	  asciimath2jax: {
+	    delimiters: [["\\\$", "\\\$"]],
+	    ignoreClass: "nomath|noasciimath"
+	  },
+	  TeX: {
+	    extensions: ["mhchem.js"]
+	  }
+});
+
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", MathJax.Hub.TypeSet);
+</script>
+EOF
   
 end
 
