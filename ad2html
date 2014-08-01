@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+
+require 'asciidoctor'
+
+def process(asciidoc_file)
+  
+  basename = File.basename(asciidoc_file, ".ad")
+  html_file_name = basename + ".html"
+  contents = File.open(asciidoc_file, 'r') { |f| f.read }
+  File.open(asciidoc_file, 'w') {|f| f.write(contents) }
+  Asciidoctor.render_file(asciidoc_file, :in_place => true)
+  post_process(html_file_name)
+
+end
+
+def post_process(html_file)
+    contents = File.open(html_file, 'r') { |f| f.read }
+    edited_contents = contents.sub("</head>", $mathscript + "\n\n" + "</head>")
+    File.open(html_file, 'w') {|f| f.write(edited_contents) }    
+end
+  
+$mathscript = <<'EOF'
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	  tex2jax: {
+	    inlineMath: [["\\\(", "\\\)"]],
+	    displayMath: [["\\\[", "\\\]"]],
+	    ignoreClass: "nomath|nolatexmath"
+	  },
+	  asciimath2jax: {
+	    delimiters: [["\\\$", "\\\$"]],
+	    ignoreClass: "nomath|noasciimath"
+	  },
+	  TeX: {
+	    extensions: ["mhchem.js"]
+	  }
+});
+
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", MathJax.Hub.TypeSet);
+</script>
+EOF
+  
+  
+process(ARGV[0])

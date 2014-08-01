@@ -2,8 +2,8 @@
 
 This is a short demo of how to use *ad2play*
 to create Swift playgrounds.  For installation
-notes, see the README file.  The READNE
-file also tells you how to run $ad2play*
+notes, see the README file.  That 
+file also tells you how to run *ad2play*
 to compile a playground from your
 source file.
 
@@ -41,7 +41,7 @@ the Swift code.
 
 == A more interesting example
 
-:math:
+:asciimath:
 
 Let
 
