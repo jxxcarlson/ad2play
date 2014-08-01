@@ -423,8 +423,10 @@ b.conum * { color: inherit !important; }
 <div class="paragraph">
 <p>The aim of this little drawing exercise is to
 to create and display a simple image composed of rectangles
-and lines&#8201;&#8212;&#8201;like the one you see on the left.
-This version of the exercise is a Swift
+and lines&#8201;&#8212;&#8201;like the one you see on the left.</p>
+</div>
+<div class="paragraph">
+<p>This version of the exercise is a Swift
 playground that was created from a markup
 file (asciidoc).  I learned a lot from
 the excellent
@@ -439,26 +441,31 @@ convert the markup into the bundle of files
 that make up a Swift playground.</p>
 </div>
 <div class="paragraph">
-<p>The advantage of wriing in asciidoc is that
+<p>The advantage of writing in asciidoc is that
 the same file can be used to publish in
 different "media".  The file used
-for this exercise is "drawing101.ad". Run
-the command $ asciidoctor drawing101.ad
-to produce drawing101.html.  Run
-the command $ ad2pl drawing101.ad
-to produce the Swift playground bunld
-drawing101.ad.</p>
+for this exercise is <strong>drawing101.ad</strong>. Run
+the command <strong>asciidoctor drawing101.ad</strong>
+to produce <strong>drawing101.html</strong>.  Run
+the command  <strong>ad2play drawing101.ad</strong>
+to produce the Swift playground bundle
+<strong>drawing101.playground</strong>.</p>
 </div>
 <div class="paragraph">
 <p>See <a href="http://asciidoctor.org">asciidoctor.org</a>
 for information on how to use and install
-asciidoctor.</p>
+asciidoctor. I would like to credit jas
+whose <a href="http://github.com/jas/swift-playground-builder">playground-builder</a>
+inspired me to write <strong>ad2play</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Current version of <strong>ad2play</strong>: 0.1 (hacked together).</p>
 </div>
 <div class="sect2">
 <h3 id="_set_up_view_and_image">Set up view and image</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>import Cocoa; import XCPlayground // Set Xcode to MacOS, not IOS
+<pre class="highlight"><code class="swift language-swift">import Cocoa; import XCPlayground // Set Xcode to MacOS, not IOS
 
 let graphWidth: CGFloat = 300.0; let graphHeight: CGFloat = 300.0
 
@@ -476,7 +483,7 @@ image.lockFocus()</code></pre>
 <h3 id="_fill_the_image_with_the_background_color">Fill the image with the background color</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>let backgroundColor = NSColor.greenColor()
+<pre class="highlight"><code class="swift language-swift">let backgroundColor = NSColor.greenColor()
 backgroundColor.setFill()
 NSRectFill(NSMakeRect(0, 0, graphWidth, graphHeight))</code></pre>
 </div>
@@ -486,7 +493,7 @@ NSRectFill(NSMakeRect(0, 0, graphWidth, graphHeight))</code></pre>
 <h3 id="_draw_two_squares_in_two_opposite_corners_of_the_image">Draw two squares in two opposite corners of the image</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>let foregroundColor = NSColor.blackColor()
+<pre class="highlight"><code class="swift language-swift">let foregroundColor = NSColor.blackColor()
 foregroundColor.setFill()
 
 let dim: CGFloat = 40.0
@@ -502,7 +509,7 @@ image.unlockFocus()</code></pre>
 <h3 id="_draw_a_diagonal_line_from_one_corner_to_another">Draw a diagonal line from one corner to another</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>image.lockFocus()
+<pre class="highlight"><code class="swift language-swift">image.lockFocus()
 
 var path = NSBezierPath()
 
@@ -520,7 +527,7 @@ image.unlockFocus()</code></pre>
 <h3 id="_draw_one_branch_of_a_hyperbola_in_the_upper_left">Draw one branch of a hyperbola in the upper left</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>var shift: CGFloat = 0.0
+<pre class="highlight"><code class="swift language-swift">var shift: CGFloat = 0.0
 let increment: CGFloat = 14.0
 
 while shift &lt;= 300 {
@@ -541,7 +548,7 @@ while shift &lt;= 300 {
 <h3 id="_draw_one_branch_of_another_hyperbola_in_the_lower_right">Draw one branch of another hyperbola in the lower right</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>shift = 0
+<pre class="highlight"><code class="swift language-swift">shift = 0
 
 while shift &lt;= 300 {
 
@@ -561,7 +568,7 @@ while shift &lt;= 300 {
 <h3 id="_display_the_final_result">Display the final result</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>var view2 = NSImageView(frame: frameRect)
+<pre class="highlight"><code class="swift language-swift">var view2 = NSImageView(frame: frameRect)
 view2.image = image
 XCPShowView("Hyerbola", view2)</code></pre>
 </div>
@@ -572,7 +579,7 @@ XCPShowView("Hyerbola", view2)</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-08-01 12:01:06 EDT
+Last updated 2014-08-01 17:16:25 EDT
 </div>
 </div>
 </body>
