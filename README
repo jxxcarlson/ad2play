@@ -23,17 +23,32 @@ necessary. See http://asciidoctor.org.
 
 $ git clone <THIS REPOSITORY>
 
-Make sure that *ad2play* and
-*ad2html* are executable.  Run 
-*chmod u+x ad2play ad2html* in the Terminal
-for this.
-
-Work in the the cloned directory.
+Work in the the cloned directory, ad2play
 
 
 GETTNG STARTED
 
+1. Once installation is complete, open 
+the directory ad2play in the finder.
+Double-click on foo.playground.
+It should open in XCode.  Experiment
+with it -- you can change the Swift
+code in the playground.  Then double
+click on the other .playground files.
 
+2. Run the command
+
+$ ./ad2play foo.ad
+
+If it runs, your installation is working.
+If it does not, check permissions.
+Now modify foo.ad and run ad2play again.
+
+
+3. Write your own .ad files and compile
+them as ordinary html files or as 
+.ad documents.  Experiment with
+*ad2play* and *ad2html*.
 
 
 COMMENTS
