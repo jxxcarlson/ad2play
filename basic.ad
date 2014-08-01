@@ -1,0 +1,21 @@
+Variable are where you store stuff:
+
+[source, swift]
+--
+var a = 1.23
+var b = 4.56
+a*b
+--
+
+Loops are used to do repetious work --
+bad for humans, but computers love it:-)
+
+[source, swift]
+--
+var sum = 0.0
+for k in 1...100 { sum += 1.0/Double(k)}
+sum
+--
+
+What happens to the sum as n gets larger and larger?
+
