@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.0.rc.4">
+<title>Drawing 101</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
+<link rel="stylesheet" href="./asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_drawing_101">Drawing 101</h2>
+<div class="sectionbody">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="images/green.png" alt="green" width="170">
+</div>
+</div>
+<div class="paragraph">
+<p>The aim of this little drawing exercise is to
+to create and display a simple image composed of rectangles
+ and lines&#8201;&#8212;&#8201;like the one you see on the left.</p>
+</div>
+<div class="paragraph">
+<p>This version of the exercise is a Swift
+ playground that was created from a markup
+ file (asciidoc)     I learned a lot from
+ the excellent
+<a href="http://www.youtube.com/watch?v=F9T551Y0mYo">Youtube video</a>
+ from <a href="http://www.fullstack.io">fullstack.io</a>.</p>
+</div>
+<div class="paragraph">
+<p>The tool I am using to convert asciidoc files to
+playgrounds is a ruby script that
+ calls <a href="http://asciidoctor.org">Asciidoctor</a> to
+convert the markup into the bundle of files
+ that make up a Swift playground.</p>
+</div>
+<div class="paragraph">
+<p>The advantage of writing in asciidoc is that
+the same file can be used to publish in
+ different "media".   The file used
+ for this exercise is <em>drawing101.ad</em>. Run
+ the command <strong>asciidoctor drawing101.ad</strong>
+ to produce <em>drawing101.html</em>.   Run
+ the command   <strong>ad2play drawing101.ad</strong>
+ to produce the Swift playground bundle
+ <em>drawing101.playground</em>.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="http://asciidoctor.org">asciidoctor.org</a>
+ for information on how to use and install
+ asciidoctor. I would like to credit jas
+ whose <a href="http://github.com/jas/swift-playground-builder">playground-builder</a>
+ inspired me to write <strong>ad2play</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Current version of <strong>ad2play</strong>: 0.1 (hacked together)</p>
+</div>
+<div class="sect2">
+<h3 id="_set_up_view_and_image">Set up view and image</h3>
+
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+</body>
+</html>

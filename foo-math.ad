@@ -2,26 +2,31 @@
 
 This is a short demo of how to use *ad2play*
 to create Swift playgrounds.  For installation
-notes, see the README file.  Requirements: 
-Ruby and the *asciidoctor* gem.
-
+notes, see the README file.  That 
+file also tells you how to run *ad2play*
+to compile a playground from your
+source file.
 
 The file you are looking at now, *foo.ad*, 
 is the _source document_ for the
-playground *foo.playground*.  Create
-*foo.playground* by running the command
-*./ad2play foo.ad*. 
-
-
-You should files *foo.ad*
-and *foo.playground*, using a text editor for
+playground *foo.playground*.  You should
+compare the two files, using a text editor for
 *foo.ad* and XCode for *foo.playground*.
-By doing so, you will figure out
+By comparing them, you figure out
 most of what you need to know to make
-playgrounds using asciidoc markup.
+playgrounds using markup.
 
 To create an html version of _foo.ad_
-run the command *asciidoctor foo.ad*.
+run the command *./ad2html foo.ad*
+included in this package.  This command
+runs *asciidoctor* and then does some
+postprocessing to handle matheatical
+formulas.  This is a temporary
+kludge -- it should be done with asciidoctor,
+but I am rusty on many things after
+a long summer vaction:-)
+
+
 
 In the non-Swift parts of 
 this document you can use mark
@@ -47,8 +52,14 @@ the Swift code.
 
 == A more interesting example
 
-We compute the quantity 1 + 1/2 + 1/3 + ... + 1/n
-for a given value of n:
+:asciimath:
+
+Let
+
+\[
+H(n) = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} +  \cdots + \frac{1}{n}
+\]
+To compute this quantity, we proceed as follows:
 
 [source, swift]
 --
@@ -62,13 +73,9 @@ sum
 
 Much better than doing the computation by hand, no?
 
-*Question:* What happens to the sum as _n_ 
-gets larger and larger?
+*Question:* What happens to \(H(n)\) as \(n\) gets
+larger and larger?
 
-== Mathematical notation
 
-Both Asciidoctor and ad2playground support mathemtical notation.
-See the files *foo-math.ad*, *foo-math.html*, and *foo-math.playground*
-for examples and further details.
 
 
