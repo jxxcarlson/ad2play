@@ -6,11 +6,11 @@ files written in asciidoc markup
 to Swift playgrounds. To use ad2play,
 type
 
-$ ./ad2pl foo.ad
+$ ./ad2play foo.ad
 
 or 
 
-$ ruby ad2pl foo.ad
+$ ruby ad2play foo.ad
 
 This will produce a Swift playground 
 named foo.playgound
@@ -19,7 +19,7 @@ INSTALLATION
 
 Make sure that Ruby v 2.1.1 or greater is
 installed.  Install asciidoctor if 
-necessary. See http://asciidoctor.org[asiidoctor]. 
+necessary. See http://asciidoctor.org. 
 
 $ git clone <THIS REPOSITORY>
 
