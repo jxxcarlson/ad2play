@@ -7,26 +7,30 @@ file also tells you how to run *ad2play*
 to compile a playground from your
 source file.
 
-The file you are looking at now, *foo.ad*, 
+The file you are looking at now, *foo-math.ad*, 
 is the _source document_ for the
-playground *foo.playground*.  You should
-compare the two files, using a text editor for
-*foo.ad* and XCode for *foo.playground*.
-By comparing them, you figure out
-most of what you need to know to make
-playgrounds using markup.
+playground *foo-math.playground*.
+Create *foo-math.playground* by running the command
+*./ad2play foo.ad*. 
 
-To create an html version of _foo.ad_
-run the command *./ad2html foo.ad*
+You should files *foo-math.ad*
+and *foo-math.playground*, using a text editor for
+*foo.ad* and XCode for *foo-math.playground*.
+By doing so, you will figure out
+most of what you need to know to make
+playgrounds using asciidoc markup. You
+will also see how mathematical formulas
+are written. (We use TeX)
+
+To create an html version of *foo-math.ad*
+run the command *./ad2html foo-math.ad*
 included in this package.  This command
 runs *asciidoctor* and then does some
-postprocessing to handle matheatical
+postprocessing to handle mathematical
 formulas.  This is a temporary
 kludge -- it should be done with asciidoctor,
 but I am rusty on many things after
 a long summer vaction:-)
-
-
 
 In the non-Swift parts of 
 this document you can use mark

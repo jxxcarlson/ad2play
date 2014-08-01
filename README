@@ -1,12 +1,37 @@
+
+INTRODUCTION
+
 ad2play is Ruby script which converts
 files written in asciidoc markup 
 to Swift playgrounds. To use ad2play,
 type
 
-$ ad2pl foo.ad
+$ ./ad2pl foo.ad
+
+or 
+
+$ ruby ad2pl foo.ad
 
 This will produce a Swift playground 
 named foo.playgound
+
+INSTALLATION
+
+Make sure that Ruby v 2.1.1 or greater is
+installed.  Install asciidoctor if 
+necessary. See http://asciidoctor.org[asiidoctor]. 
+
+$ git clone <THIS REPOSITORY>
+
+Make sure that *ad2play* and
+*ad2html* are executable.  Run 
+*chmod u+x ad2play ad2html* in the Terminal
+for this.
+
+Work in the the cloned directory.
+
+
+COMMENTS
 
 ad2pl used http://asciidoctor.org[Asciidoctor] to 
 convert the markup into the bundle of files
