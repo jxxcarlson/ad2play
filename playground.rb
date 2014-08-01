@@ -122,9 +122,13 @@ class Parser
     
     @debug = false
     
-    basename = File.basename(input_file, ".asciidoc")
+    basename = File.basename(input_file, ".ad")
     @target_directory = basename + ".playground"
     @documentation_directory = @target_directory+"/Documentation"
+    @image_directory = @documentation_directory + "/images"
+    @css_file = @documentation_directory + "/asciidoctor.css"
+    @css_source_file = "asciidoctor.css"
+    
     @output_names = []
 
     if !Dir.exists? @target_directory
@@ -133,6 +137,14 @@ class Parser
 
     if !Dir.exists? @documentation_directory
       Dir.mkdir @documentation_directory
+    end
+    
+    if !Dir.exists? @image_directory
+      Dir.mkdir @image_directory
+    end
+    
+    if !File.exists? @css_file
+      FileUtils.cp(@css_source_file, @css_file)
     end
         
     @file_count = 0
@@ -200,7 +212,7 @@ class Parser
     
     if @previous_state == :text 
       
-      source_filename = "section-#{@file_count}.asciidoc"
+      source_filename = "section-#{@file_count}.ad"
       html_filename = "section-#{@file_count}.html"
       @output_names << html_filename
       
@@ -212,7 +224,7 @@ class Parser
       File.open(source_path, 'w') {|f| f.write(@file_contents) }
       Asciidoctor.render_file(source_path, :in_place => true)
 
-      if false
+      if !@debug
         FileUtils.rm(source_path)
       end
            
@@ -238,11 +250,15 @@ class Parser
     end
         
     if @state != :code1 and @state!= :code3 and !(@state == :code2 and @token.strip == "--") and (@token != "!end!")
-      text_to_add = @token.lstrip
-      if text_to_add != ""
-        puts "add: |#{text_to_add}|"
-        @file_contents += @token.lstrip + " "
+      if @token != "\n"
+        text_to_add = @token + " "
+      else
+        text_to_add = "\n"
       end
+      if @debug 
+        puts "add: |#{text_to_add}|"
+      end
+      @file_contents += text_to_add      
     end
     
     if @previous_state != @state and @previous_state == :text
@@ -286,10 +302,9 @@ class Parser
 end
 
 
-# source_file = "test.asciidoc"
+# source_file = "test.ad"
 
 source_file = ARGV[0]
-puts "echo, source_file = #{source_file}"
 
 count = 0
 pa = Parser.new
