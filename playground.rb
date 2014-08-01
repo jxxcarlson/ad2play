@@ -1,6 +1,16 @@
+#!/usr/bin/env ruby
+
+# File:        ad2pl
+# Purpose:     Convert files written in asciidoc (asciidoctor) to Swift playgrounds
+# Usage:       $ ad2pl foo.ad
+#              This will produce a Swift playground named foo.playgound
+# Author:      James Carlson (@epsilon2718, http://square-the-circle.com)
+# Date:        August 1, 2014
+# License:     MIT License
+# Code status: hacked together
+
 
 require 'asciidoctor'
-# require 'FileUtils'
 
 class Tokenizer
   
@@ -221,6 +231,7 @@ class Parser
       source_path =  @documentation_directory + "/" + source_filename
       html_path =  @documentation_directory + "/" + html_filename
       
+      @file_contents = ":last-update-label!:\n\n\n" +  @file_contents
       File.open(source_path, 'w') {|f| f.write(@file_contents) }
       Asciidoctor.render_file(source_path, :in_place => true)
 
