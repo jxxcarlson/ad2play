@@ -1,5 +1,6 @@
 
 require 'asciidoctor'
+# require 'FileUtils'
 
 class Tokenizer
   
@@ -42,7 +43,9 @@ class Tokenizer
     token = ""
     index = @begin_chars.index(c)
     endchar = @end_chars[index]
+    
     ch = get_char
+    
     while ch != endchar
       token += ch
       ch = get_char
@@ -56,7 +59,9 @@ class Tokenizer
   def normal_token(c)
     
     token = "" 
+    
     ch = get_char
+    
     while ch != nil && ch != @stop_char && ch != '\n' && ch != ' '
       token += ch  
       ch = get_char
@@ -111,11 +116,13 @@ end
 
 class Parser
   
-   attr_accessor  :output_names
+   attr_accessor  :output_names, :debug
   
   def set_up(input_file)
     
-    basename = File.basename(input_file, ".ad")
+    @debug = false
+    
+    basename = File.basename(input_file, ".asciidoc")
     @target_directory = basename + ".playground"
     @documentation_directory = @target_directory+"/Documentation"
     @output_names = []
@@ -127,13 +134,13 @@ class Parser
     if !Dir.exists? @documentation_directory
       Dir.mkdir @documentation_directory
     end
-    
-    
+        
     @file_count = 0
     @file_contents = ""
     @state = :text
     @previous_state = @state
     @tk = Tokenizer.new
+    
   end
   
   
@@ -147,6 +154,8 @@ class Parser
       @state = :code2
     elsif  (/--/ =~ @token) == 0 and @state == :code2
       @state = :code3
+    elsif  @previous_state == :code2 and @state == :code3
+      @state = :text
     end
     
   end
@@ -182,7 +191,7 @@ class Parser
     path = @target_directory + "/" + manifest_name
     File.open(path, 'w') {|f| f.write(manifest) }
     
-    puts manifest   
+    # puts manifest   
     
   end
   
@@ -190,18 +199,33 @@ class Parser
   def write_out(str)
     
     if @previous_state == :text 
-      filename = "section-#{@file_count}.html"
-      html_content = Asciidoctor.render(@file_contents)
-      path =  @documentation_directory + "/" + filename
-      puts "  #{filename}"
-      File.open(path, 'w') {|f| f.write(html_content) }
+      
+      source_filename = "section-#{@file_count}.asciidoc"
+      html_filename = "section-#{@file_count}.html"
+      @output_names << html_filename
+      
+      # html_content = Asciidoctor.render(@file_contents)
+          
+      source_path =  @documentation_directory + "/" + source_filename
+      html_path =  @documentation_directory + "/" + html_filename
+      
+      File.open(source_path, 'w') {|f| f.write(@file_contents) }
+      Asciidoctor.render_file(source_path, :in_place => true)
+
+      if false
+        FileUtils.rm(source_path)
+      end
+           
+      puts "  #{html_filename}"
+      
     else
       filename = "section-#{@file_count}.swift"
+      @output_names << filename
       path = @target_directory + "/" + filename
       puts "  #{filename}"
-      File.open(filename, 'w') {|f| f.write(@file_contents) }
+      File.open(path, 'w') {|f| f.write(@file_contents) }
     end
-    @output_names << filename
+    
     @file_contents = "" 
     @file_count += 1   
     
@@ -209,18 +233,23 @@ class Parser
   
   def handle_token
     
-    puts "state: #{@state}, token: |#{@token}|"
+    if @debug
+      puts "states: #{@previous_state}, #{@state}, token: |#{@token}|"
+    end
         
-    @file_contents += " " 
-    if @state != :code1 and @state!= :code3 and !(@state == :code2 and @token.strip == "--")
-      @file_contents += @token
+    if @state != :code1 and @state!= :code3 and !(@state == :code2 and @token.strip == "--") and (@token != "!end!")
+      text_to_add = @token.lstrip
+      if text_to_add != ""
+        puts "add: |#{text_to_add}|"
+        @file_contents += @token.lstrip + " "
+      end
     end
     
     if @previous_state != @state and @previous_state == :text
       write_out(@file_contents)
       @file_contents = ""
       # @state =  :code1     
-    elsif @previous_state != @state and @previous_state == :code3 
+    elsif @previous_state != @state and @state == :code3 
       write_out(@file_contents)
       @file_contents = ""
       @state = :text     
@@ -228,8 +257,6 @@ class Parser
     
     @previous_state = @state
          
-  
-
   end
     
  
@@ -247,29 +274,39 @@ class Parser
         change_state
         handle_token
       end
-    end   
+    end 
   end 
   
+  def finish_up
+    @state = :end
+    @token = "!end!"
+    handle_token 
+  end
   
 end
 
 
-source_file = "test.ad"
+# source_file = "test.asciidoc"
+
+source_file = ARGV[0]
+puts "echo, source_file = #{source_file}"
 
 count = 0
 pa = Parser.new
 pa.set_up(source_file)
+# pa.debug = true
 
 puts "\n  Writing playground ..."
 
 
-File.readlines('test.ad').each do |line|
+File.readlines(source_file).each do |line|
   pa.parse_line(line)
 end
+pa.finish_up
 puts
 pa.write_manifest
 # puts pa.output_names
-puts
+
 
 
 
