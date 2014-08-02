@@ -12,7 +12,7 @@ or
 
 `$ ruby ad2play foo.ad`
 
-This will produce a Swift playground  named foo.playgound from the source  file foo.ad
+This will produce a Swift playground named `foo.playgound` from the source  file `foo.ad`.
 
 # Installation
 
