@@ -6,15 +6,13 @@ files written in asciidoc markup
 to Swift playgrounds. To use ad2play,
 type
 
-$ ./ad2play foo.ad
+`$ ./ad2play foo.ad`
 
 or 
 
-$ ruby ad2play foo.ad
+`$ ruby ad2play foo.ad`
 
-This will produce a Swift playground 
-named foo.playgound from the source 
-file foo.ad
+This will produce a Swift playground  named foo.playgound from the source  file foo.ad
 
 # Installation
 
@@ -22,15 +20,19 @@ file foo.ad
 
 2. Install asciidoctor if necessary:
 
-   $ gem install asciidoctor 
+   `$ gem install asciidoctor` 
 
-    See http://asciidoctor.org. 
+    See [asciidoctor.org](http://asciidoctor.org). 
 
-3. $ git clone <THIS REPOSITORY>
+3. `$ git clone http://github.com/jxxcarlson/ad2play`
 
-For now, you need to work in the root of the cloned 
-directory, ad2play.  It contains the file 
-asciidoctor.css which is needed for manufacturing
+4. Now `cd` into the folder `ad2play` that you just created.  Type `./ad2play basic.ad` to run one of the examples. If `ad2play` runs, your installation is complete and correct.  If it does not, check the fullowing:
+  - Is `ad2play` executable?
+  - Is ruby v 2.1.1 or greater installed?
+  - Is `asciidoctor` installed?
+
+For now, you need to work in the root of the cloned  directory, ad2play.  
+It contains the file asciidoctor.css which is needed for manufacturing
 the playgrounds.
 
 
