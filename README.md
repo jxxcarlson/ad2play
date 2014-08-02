@@ -10,7 +10,7 @@ named **`foo.playgound`**.
 You can double-click on **`foo.playground`** to open it in XCode.  
 
 To create an html version
-of `foo.ad`, run **`asciidoctor foo.ad`** at the command line.  
+of **`foo.ad`**, run **`asciidoctor foo.ad`** at the command line.  
 
 # Installation
 
