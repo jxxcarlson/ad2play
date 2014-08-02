@@ -7,7 +7,7 @@ to Swift playgrounds. To use `ad2play`,
 type `./ad2play foo.ad` or `ruby ad2play foo.ad`
 at the command line.  This will produce a Swift playground 
 named `foo.playgound`.
-You can double-click `foo.playground` to open it in XCode.  
+You can double-click on `foo.playground` to open it in XCode.  
 
 To create an html version
 of `foo.ad`, run **`asciidoctor foo.ad`** at the command line.  
