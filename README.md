@@ -13,6 +13,7 @@ or
 `$ ruby ad2play foo.ad`
 
 This will produce a Swift playground named `foo.playgound` from the source  file `foo.ad`.
+You can double-click `foo.playground` to open it in XCode. 
 
 # Installation
 
@@ -48,12 +49,31 @@ If you do not see the above output, check the fullowing:
 
 ## Notes
 
-For now, you need to work in the root of the cloned  directory, ad2play.  
-It contains the file asciidoctor.css which is needed for manufacturing
+For now, you need to work in the root of the cloned  directory, `ad2play`.  
+It contains the file `asciidoctor.css` which is needed for manufacturing
 the playgrounds.
 
 You are now ready to write your own `.ad` files and compile
 them as playgrounds using `ad2play` -- or as  html files using `asciidoctor`.
+
+# Images
+
+**`ad2play** creates a directory `images` in `foo.playground/Documents`.  
+This is where you put images that you wish to display in your playground.
+(See `drawing101.playground` for an example.) 
+
+To display the image `bar.png` in your playground, place it 
+`foo.playground/Documents/images`.  In your source file,
+say `foo.ad`,
+put the text `image::bar.png[width=200]` in the place
+where you wish the image to be displayed.  
+
+**Variants:**
+- `image::bar.png[]`
+- `image::bar.png[width=200]`
+- `image::bar.png[float=left, width=200]`
+See the documentation at [asciidoctor.org](http://asciidoctor.org)
+for more information.
 
 # Mathematics
 
