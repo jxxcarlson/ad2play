@@ -13,20 +13,28 @@ or
 $ ruby ad2play foo.ad
 
 This will produce a Swift playground 
-named foo.playgound
+named foo.playgound from the source 
+file foo.ad
 
 INSTALLATION
 
-Make sure that Ruby v 2.1.1 or greater is
-installed.  Install asciidoctor if 
-necessary. See http://asciidoctor.org. 
+1. Make sure that Ruby v 2.1.1 or greater is installed.  
 
-$ git clone <THIS REPOSITORY>
+2. Install asciidoctor if necessary:
 
-Work in the the cloned directory, ad2play
+   $ gem install asciidoctor 
+
+    See http://asciidoctor.org. 
+
+3. $ git clone <THIS REPOSITORY>
+
+For now, you need to work in the root of the cloned 
+directory, ad2play.  It contains the file 
+asciidoctor.css which is needed for manufacturing
+the playgrounds.
 
 
-GETTNG STARTED
+THINGS TO TRY
 
 1. Once installation is complete, open 
 the directory ad2play in the finder.
