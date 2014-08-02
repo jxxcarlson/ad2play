@@ -1,5 +1,5 @@
 
-INTRODUCTION
+# Introduction
 
 ad2play is Ruby script which converts
 files written in asciidoc markup 
@@ -16,7 +16,7 @@ This will produce a Swift playground
 named foo.playgound from the source 
 file foo.ad
 
-INSTALLATION
+# Installation
 
 1. Make sure that Ruby v 2.1.1 or greater is installed.  
 
@@ -34,7 +34,7 @@ asciidoctor.css which is needed for manufacturing
 the playgrounds.
 
 
-THINGS TO TRY
+# Experimentation
 
 1. Once installation is complete, open 
 the directory ad2play in the finder.
@@ -58,8 +58,16 @@ them as ordinary html files or as
 .ad documents.  Experiment with
 *ad2play* and *ad2html*.
 
+# Mathematics
 
-COMMENTS
+In-line mathematical text is written like this:
+\(a^2 + b^2 = c^2) (LaTeX). Displayed mathematical
+text is written like this:
+\[
+    a^2 + b^2 = c^2
+\]
+
+# Comments
 
 ad2pl used http://asciidoctor.org[Asciidoctor] to 
 convert the markup into the bundle of files
