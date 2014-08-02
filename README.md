@@ -105,8 +105,9 @@ configure, and then open `foo.ad` with Chrome.  Asciidoctor Live Preview is writ
 convert the markup into the bundle of files
 that make up a Swift playground.  
 
-**Credit.** I would like to credit *jas*
-whose [playground-builder](http://github.com/jas/swift-playground-builder)
+**Credit.** Thanks to *jas*.
+His [playground-builder](http://github.com/jas/swift-playground-builder),
+which creates playgrounds from markdown files,
 inspired me to write `ad2play` so as to work with asciidoc.  
 
 Current version of `ad2play`: 0.1 (hacked together).
