@@ -92,10 +92,6 @@ a little postprocessing.
 
 # Comments
 
-`ad2play` uses [Asciidoctor](http://asciidoctor.org) to 
-convert the markup into the bundle of files
-that make up a Swift playground.
-
 The advantage of writing in asciidoc is that 
 the same file can be used to publish in
 different "media". If you have content that
@@ -104,10 +100,21 @@ run the command `asciidoctor foo.ad`
 to produce `foo.html`.  Run
 the command  `./ad2play foo.ad`
 to produce the Swift playground bundle
-`foo.playground`.  
+`foo.playground`. 
 
-I would like to credit *jas*
+**Note.** See [Asciidoctor Live Preview](http://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia)
+is a plugin for the Chrome browser that gives a live preview of asciidoc text you are writing.  Install,
+configure, and then opon `foo.ad` with Chrome.  Written by Guillaume Grossetie, source code at
+[GitHub](https://github.com/asciidoctor/asciidoctor-chrome-extension).
+
+**Credit.** `ad2play` uses [Asciidoctor](http://asciidoctor.org) to 
+convert the markup into the bundle of files
+that make up a Swift playground.  
+
+**Credit.** I would like to credit *jas*
 whose [playground-builder](http://github.com/jas/swift-playground-builder)
 inspired me to write `ad2play` so as to work with asciidoc.  
 
 Current version of `ad2play`: 0.1 (hacked together).
+
+**Copyright** :copyright: 2014 James Carlson. Free use of this software is granted under the terms of the MIT License
