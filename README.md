@@ -49,7 +49,7 @@ the playgrounds.
 
 # Troubleshooting
 
-If you do not see the above output, check the fullowing:
+If you do not see the above output, check the following:
 - Is `ad2play` executable?
 - Is ruby v 2.1.1 or greater installed?
 - Is `asciidoctor` installed?
