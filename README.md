@@ -50,29 +50,8 @@ It contains the file asciidoctor.css which is needed for manufacturing
 the playgrounds.
 
 
-# Experimentation
-
-1. Once installation is complete, open 
-the directory ad2play in the finder.
-Double-click on foo.playground.
-It should open in XCode.  Experiment
-with it -- you can change the Swift
-code in the playground.  Then double
-click on the other .playground files.
-
-2. Run the command
-
-$ ./ad2play foo.ad
-
-If it runs, your installation is working.
-If it does not, check permissions.
-Now modify foo.ad and run ad2play again.
-
-
-3. Write your own .ad files and compile
-them as ordinary html files or as 
-.ad documents.  Experiment with
-*ad2play* and *ad2html*.
+You are now ready to write your own `.ad` files and compile
+them as playgrounds using `ad2play` -- or as  html files using `asciidoctor`.
 
 # Mathematics
 
@@ -85,9 +64,15 @@ text is written like this:
 \]
 ```
 
+When your asciidoc file contains 
+mathematical text formatted as described
+above, use `./ad2html` to produce html files.  
+This script runs `asciidoctor` and then does
+a little postprocessing.
+
 # Comments
 
-`ad2play` used [Asciidoctor](http://asciidoctor.org) to 
+`ad2play` uses [Asciidoctor](http://asciidoctor.org) to 
 convert the markup into the bundle of files
 that make up a Swift playground.
 
@@ -99,11 +84,7 @@ run the command `asciidoctor foo.ad`
 to produce `foo.html`.  Run
 the command  `./ad2play foo.ad`
 to produce the Swift playground bundle
-`foo.playground`.  If `foo.ad` contains
-mathematical text formatted as described
-above, use `./ad2html`.  This little
-script runs `asciidoctor` and then does
-a little postprocessing.
+`foo.playground`.  
 
 I would like to credit *jas*
 whose [playground-builder](http://github.com/jas/swift-playground-builder)
