@@ -3,7 +3,7 @@
 
 **`ad2play`** is Ruby script which converts
 files written in asciidoc markup 
-to Swift playgrounds. To use ad2play,
+to Swift playgrounds. To use `ad2play`,
 type
 
 `$ ./ad2play foo.ad`
