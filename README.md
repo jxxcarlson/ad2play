@@ -39,16 +39,18 @@ $ ./ad2play basic.ad
   section-4.html
 ```
 
- 
-5. If you do not see the above output, check the fullowing:
-  - Is `ad2play` executable?
-  - Is ruby v 2.1.1 or greater installed?
-  - Is `asciidoctor` installed?
+## Troubleshooting
+
+If you do not see the above output, check the fullowing:
+- Is `ad2play` executable?
+- Is ruby v 2.1.1 or greater installed?
+- Is `asciidoctor` installed?
+
+## Notes
 
 For now, you need to work in the root of the cloned  directory, ad2play.  
 It contains the file asciidoctor.css which is needed for manufacturing
 the playgrounds.
-
 
 You are now ready to write your own `.ad` files and compile
 them as playgrounds using `ad2play` -- or as  html files using `asciidoctor`.
