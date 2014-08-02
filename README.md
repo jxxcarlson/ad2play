@@ -7,7 +7,18 @@ to Swift playgrounds. To use **`ad2play`**,
 type **`./ad2play foo.ad`** or **`ruby ad2play foo.ad`**
 at the command line.  This will produce a Swift playground 
 named **`foo.playgound`**.
-You can double-click on **`foo.playground`** to open it in XCode.  
+You can double-click on **`foo.playground`** to open it in XCode. 
+
+Swift code should be set off from the rest of the text like this:
+
+```
+[source, swift]
+--
+let pi = 3.1416
+var r = 2.718
+var a = pi*r*r
+--
+```
 
 To create an html version
 of **`foo.ad`**, run **`asciidoctor foo.ad`** at the command line.  
