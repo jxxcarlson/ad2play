@@ -4,15 +4,9 @@
 **`ad2play`** is Ruby script which converts
 files written in asciidoc markup 
 to Swift playgrounds. To use `ad2play`,
-type
-
-`$ ./ad2play foo.ad`
-
-or 
-
-`$ ruby ad2play foo.ad`
-
-This will produce a Swift playground named `foo.playgound` from the source  file `foo.ad`.
+type `./ad2play foo.ad` or `ruby ad2play foo.ad`
+at the command line.  This will produce a Swift playground 
+named `foo.playgound` from the source  file `foo.ad`.
 You can double-click `foo.playground` to open it in XCode.  
 
 To create an html version
