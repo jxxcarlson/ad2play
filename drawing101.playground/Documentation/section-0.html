@@ -8,6 +8,29 @@
 <title>Drawing 101</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
 <link rel="stylesheet" href="./asciidoctor.css">
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	  tex2jax: {
+	    inlineMath: [["\\(", "\\)"]],
+	    displayMath: [["\\[", "\\]"]],
+	    ignoreClass: "nomath|nolatexmath"
+	  },
+	  asciimath2jax: {
+	    delimiters: [["\\$", "\\$"]],
+	    ignoreClass: "nomath|noasciimath"
+	  },
+	  TeX: {
+	    extensions: ["mhchem.js"]
+	  }
+});
+
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", MathJax.Hub.TypeSet);
+</script>
+
+
 </head>
 <body class="article">
 <div id="header">
@@ -45,12 +68,12 @@ convert the markup into the bundle of files
 <p>The advantage of writing in asciidoc is that
 the same file can be used to publish in
  different "media".   The file used
- for this exercise is <em>drawing101.ad</em>. Run
+ for this exercise is <strong>drawing101.ad</strong>. Run
  the command <strong>asciidoctor drawing101.ad</strong>
- to produce <em>drawing101.html</em>.   Run
+ to produce <strong>drawing101.html</strong>.   Run
  the command   <strong>ad2play drawing101.ad</strong>
  to produce the Swift playground bundle
- <em>drawing101.playground</em>.</p>
+ <strong>drawing101.playground</strong>.</p>
 </div>
 <div class="paragraph">
 <p>See <a href="http://asciidoctor.org">asciidoctor.org</a>

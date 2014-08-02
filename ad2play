@@ -50,17 +50,25 @@ class Tokenizer
   
   def delimited_token(c)
     
+    # The tests ch != nil
+    # are there for the possibility
+    # of an unbalance pair
+    # delimiters -- balanced in the
+    # document, but not on a line
+    
     token = ""
     index = @begin_chars.index(c)
     endchar = @end_chars[index]
     
     ch = get_char
     
-    while ch != endchar
+    while ch != nil && ch != endchar
       token += ch
       ch = get_char
     end
-    token += ch
+    if ch != nil 
+      token += ch
+    end
     get_char
     return token
     
@@ -151,6 +159,16 @@ class Parser
     
     if !Dir.exists? @image_directory
       Dir.mkdir @image_directory
+    end
+    
+    if Dir.exists? "images"
+      FileUtils.cp(Dir['images/*'],@image_directory)
+      n = Dir['images/*'].count
+      if n == 1 
+        puts "  -- copied 1 file to 'images'"
+      else
+        puts "  -- copied #{n} files to 'images'"
+      end
     end
     
     if !File.exists? @css_file
@@ -314,7 +332,7 @@ class Parser
   def post_process(html_file)
     contents = File.open(html_file, 'r') { |f| f.read }
     edited_contents = contents.sub("</head>", $mathscript + "\n\n" + "</head>")
-    File.open(html_file, 'w') {|f| f.write(edited_contents) }    
+    File.open(html_file, 'w') {|f| f.write(edited_contents) }   
   end
   
   $mathscript = <<'EOF'
@@ -350,10 +368,9 @@ source_file = ARGV[0]
 
 count = 0
 pa = Parser.new
+puts "\n  Writing playground ..."
 pa.set_up(source_file)
 # pa.debug = true
-
-puts "\n  Writing playground ..."
 
 
 File.readlines(source_file).each do |line|
@@ -367,7 +384,11 @@ pa.write_manifest
 
 
 
-
+  $xxx = <<'EOF'
+ho ho
+go go
+to to
+EOF
 
 
 
