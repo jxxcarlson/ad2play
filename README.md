@@ -20,6 +20,8 @@ var a = pi*r*r
 --
 ```
 
+You can have as many of these blocks as you like.
+
 To create an html version
 of **`foo.ad`**, run **`asciidoctor foo.ad`** at the command line.  
 
