@@ -102,9 +102,9 @@ the command  `./ad2play foo.ad`
 to produce the Swift playground bundle
 `foo.playground`. 
 
-**Note.** See [Asciidoctor Live Preview](http://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia)
+**Note.** [Asciidoctor Live Preview](http://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia)
 is a plugin for the Chrome browser that gives a live preview of asciidoc text you are writing.  Install,
-configure, and then opon `foo.ad` with Chrome.  Written by Guillaume Grossetie, source code at
+configure, and then open `foo.ad` with Chrome.  Asciidoctor Live Preview is written by Guillaume Grossetie, source code is at
 [GitHub](https://github.com/asciidoctor/asciidoctor-chrome-extension).
 
 **Credit.** `ad2play` uses [Asciidoctor](http://asciidoctor.org) to 
