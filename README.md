@@ -13,13 +13,16 @@ or
 `$ ruby ad2play foo.ad`
 
 This will produce a Swift playground named `foo.playgound` from the source  file `foo.ad`.
-You can double-click `foo.playground` to open it in XCode. 
+You can double-click `foo.playground` to open it in XCode.  
+
+To create an html version
+of `foo.ad`, run **`asciidoctor foo.ad`** at the command line.  
 
 # Installation
 
 1. Make sure that Ruby v 2.1.1 or greater is installed.  
 
-2. Install asciidoctor if necessary:
+2. Install asciidoctor:
 
    `$ gem install asciidoctor` 
 
@@ -40,21 +43,17 @@ $ ./ad2play basic.ad
   section-4.html
 ```
 
-## Troubleshooting
+**Note.** For now, you need to work in the root of the cloned  directory, `ad2play`.  
+It contains the file `asciidoctor.css` which is required for manufacturing
+the playgrounds.
+
+# Troubleshooting
 
 If you do not see the above output, check the fullowing:
 - Is `ad2play` executable?
 - Is ruby v 2.1.1 or greater installed?
 - Is `asciidoctor` installed?
 
-## Notes
-
-For now, you need to work in the root of the cloned  directory, `ad2play`.  
-It contains the file `asciidoctor.css` which is needed for manufacturing
-the playgrounds.
-
-You are now ready to write your own `.ad` files and compile
-them as playgrounds using `ad2play` -- or as  html files using `asciidoctor`.
 
 # Images
 
@@ -62,11 +61,10 @@ them as playgrounds using `ad2play` -- or as  html files using `asciidoctor`.
 This is where you put images that you wish to display in your playground.
 (See `drawing101.playground` for an example.) 
 
-To display the image `bar.png` in your playground, place it 
-`foo.playground/Documents/images`.  In your source file,
-say `foo.ad`,
-put the text `image::bar.png[width=200]` in the place
-where you wish the image to be displayed.  
+To display the image `bar.png` in the playground `foo.playground`, 
+copy it  into
+`foo.playground/Documents/images`.  In the source file, `foo.ad`,
+add the text `image::bar.png[width=200]`.  
 
 **Variants:**
 - `image::bar.png[]`
@@ -100,8 +98,8 @@ that make up a Swift playground.
 
 The advantage of writing in asciidoc is that 
 the same file can be used to publish in
-different "media". If you have content
-you wish to publish that resides in `foo.ad`
+different "media". If you have content that
+ resides in `foo.ad`,
 run the command `asciidoctor foo.ad`
 to produce `foo.html`.  Run
 the command  `./ad2play foo.ad`
