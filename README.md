@@ -64,13 +64,13 @@ If you do not see the above output, check the following:
 
 # Images
 
-**`ad2play** creates a directory `images` in `foo.playground/Documents`.  
-This is where you put images that you wish to display in your playground.
-(See `drawing101.playground` for an example.) 
+If you want to include images in your document, create a directory `images`
+alongside your source file `foo.ad`.  Put any images you wish to use in 
+this directory. **`ad2play** copies this directory and its contents to
+`foo.playground/Documents`.
 
 To display the image `bar.png` in the playground `foo.playground`, 
-copy it  into
-`foo.playground/Documents/images`.  In the source file, `foo.ad`,
+copy it  into `images`.  In the source file, `foo.ad`,
 add the text `image::bar.png[width=200]`.  
 
 **Variants:**
