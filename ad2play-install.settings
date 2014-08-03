@@ -1,0 +1,4 @@
+path_for_asciidoctor_css_file: /usr/local/bin/asciidoctor.css
+foo: bar
+lorq: muuk
+

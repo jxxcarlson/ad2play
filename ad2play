@@ -17,6 +17,12 @@ def last_char(str)
  return str[index]
 end
 
+def hash_from_file(file_name)
+  contents = File.open(file_name, 'r') { |f| f.read }
+  Hash[*contents.split(/: |\n/)] 
+end
+
+
 class Tokenizer
   
   attr_accessor  :input
@@ -145,12 +151,19 @@ class Parser
     
     @debug = false
     
+    if File.exists? "ad2play.settings"
+      h = hash_from_file("ad2play.settings")
+      @css_source_file = h["path_for_asciidoctor_css_file"]
+    else
+      @css_source_file = "asciidoctor.css"
+    end
+    
     basename = File.basename(input_file, ".ad")
     @target_directory = basename + ".playground"
     @documentation_directory = @target_directory+"/Documentation"
     @image_directory = @documentation_directory + "/images"
     @css_file = @documentation_directory + "/asciidoctor.css"
-    @css_source_file = "asciidoctor.css"
+    
     
     @output_names = []
 
