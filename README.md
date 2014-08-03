@@ -37,7 +37,14 @@ of **`foo.ad`**, run **`asciidoctor foo.ad`** at the command line.
 
 3. `$ git clone http://github.com/jxxcarlson/ad2play`
 
-4. Now `cd` into the folder `ad2play` that you just created.  Type `./ad2play basic.ad` to run one of the examples. If `ad2play` runs, your installation is complete and correct. You should see the following
+4. Now `cd` into the folder `ad2play` that you just created and run the command `sudo sh install.sh`.  This will install `ad2play` and `ad2html` in `/usr/local/bin`
+
+
+# Testing
+
+You may have to log out and log back in for this step to succeed.
+
+Type `ad2play basic.ad` to run one of the examples. If `ad2play` runs, your installation is complete and correct. You should see the following
  
 ```
 $ ./ad2play basic.ad
@@ -50,13 +57,12 @@ $ ./ad2play basic.ad
   section-4.html
 ```
 
-**Note.** For now, you need to work in the root of the cloned  directory, `ad2play`.  
-It contains the file `asciidoctor.css` which is required for manufacturing
-the playgrounds.
-
 # Troubleshooting
 
 If you do not see the above output, check the following:
+- Is `ruby` installed (version >- 2.1.1)?  Type `ruby --version` to verify
+- Is `asciidoctor` (version >= 1.5) installed? Type `asciidoctor --version`
+- Is `ad2play` in `/usr/local/bin` along with `asciidoctor.css`?
 - Is `ad2play` executable?
 - Is ruby v 2.1.1 or greater installed?
 - Is `asciidoctor` installed?
