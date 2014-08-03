@@ -12,6 +12,11 @@
 
 require 'asciidoctor'
 
+def last_char(str)
+ index = str.length - 1
+ return str[index]
+end
+
 class Tokenizer
   
   attr_accessor  :input
@@ -273,6 +278,7 @@ class Parser
     @file_count += 1   
     
   end
+
   
   def handle_token
     
@@ -281,10 +287,10 @@ class Parser
     end
         
     if @state != :code1 and @state!= :code3 and !(@state == :code2 and @token.strip == "--") and (@token != "!end!")
-      if @token != "\n"
+      if last_char(@token) != "\n"
         text_to_add = @token + " "
       else
-        text_to_add = "\n"
+        text_to_add = @token
       end
       if @debug 
         puts "add: |#{text_to_add}|"
