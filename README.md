@@ -25,7 +25,7 @@ You can have as many of these blocks as you like.
 To create an html version
 of **`foo.ad`**, run **`asciidoctor foo.ad`** at the command line.  
 
-# Installation
+# Installation, Part I
 
 1. Make sure that Ruby v 2.1.1 or greater is installed.  
 
