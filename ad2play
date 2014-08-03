@@ -377,7 +377,7 @@ count = 0
 pa = Parser.new
 puts "\n  Writing playground ..."
 pa.set_up(source_file)
-pa.debug = true
+# pa.debug = true
 
 
 File.readlines(source_file).each do |line|
