@@ -352,6 +352,7 @@ class Parser
   def post_process(html_file)
     contents = File.open(html_file, 'r') { |f| f.read }
     edited_contents = contents.sub("</head>", $mathscript + "\n\n" + "</head>")
+    edited_contents = edited_contents.gsub(/<div id="footer">\n<div id="footer-text">\n<\/div>\n<\/div>/, "")
     File.open(html_file, 'w') {|f| f.write(edited_contents) }   
   end
   
